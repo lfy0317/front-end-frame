@@ -24,7 +24,7 @@ module.exports = merge(base, {
                             // 它可以帮助我们将一些现代的 CSS 特性，转成大多数浏览器认识的 CSS，并且会根据目标浏览器或运行时环境添加所需的 polyfill；
                             // 也包括会自动帮助我们添加 autoprefixer
                             postcssOptions: {
-                                plugins: [["postcss-preset-env", {}]],
+                                plugins: ["postcss-preset-env"],
                             },
                         },
                     },
