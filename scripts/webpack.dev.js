@@ -12,6 +12,7 @@ module.exports = merge(base, {
                     {
                         loader: "css-loader",
                         options: {
+                            // 启用 CSS Modules
                             modules: {
                                 namedExport: true,
                                 localIdentName: "lfy__[name]__[local]",
