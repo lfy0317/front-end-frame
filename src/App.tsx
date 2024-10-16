@@ -1,12 +1,12 @@
 import * as React from "react";
 import reactLogo from "@/assets/images/react.svg";
-import css from "./index.less";
+import * as styles from "./index.module.less";
 
 const App: React.FC = () => {
-    console.log(css);
+    console.log(styles);
     
     return (
-        <div className={css.wrapper}>
+        <div className={styles.wrapper}>
             <img src={reactLogo} />
             hello 小柒
         </div>
