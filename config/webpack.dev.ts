@@ -1,8 +1,13 @@
-const { merge } = require("webpack-merge");
-const base = require("./webpack.base.js");
+import { Configuration } from "webpack";
+import { merge } from "webpack-merge";
+import commonConfig from "./webpack.common";
 
-module.exports = merge(base, {
+const devConfig: Configuration & { devServer: { [key: string]: any } } = {
     mode: "development", // 开发模式
+    devServer: {
+        open: true, // 编译完自动打开浏览器
+        port: 8080,
+    },
     module: {
         rules: [
             {
@@ -36,8 +41,6 @@ module.exports = merge(base, {
             },
         ],
     },
-    devServer: {
-        open: true, // 编译完自动打开浏览器
-        port: 8080,
-    },
-});
+};
+
+export default merge(commonConfig, devConfig);

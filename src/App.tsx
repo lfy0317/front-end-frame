@@ -1,4 +1,5 @@
 import * as React from 'react';
+import { Button } from "@/components/ui/button";
 import reactLogo from '@/assets/images/react.svg';
 import * as styles from './index.module.less';
 
@@ -10,6 +11,7 @@ const App: React.FC = () => {
             <img src={reactLogo} />
             hello 小柒
             <h1 className="text-3xl font-bold underline">Hello world!</h1>
+            <Button>click btn</Button>
         </div>
     );
 };

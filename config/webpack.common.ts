@@ -1,7 +1,10 @@
-const path = require("path");
-const HtmlWebpackPlugin = require("html-webpack-plugin");
+import { Configuration } from "webpack";
+import path from "path";
+import HtmlWebpackPlugin from "html-webpack-plugin";
 
-module.exports = {
+const NODE_ENV = process.env.NODE_ENV; // development | production
+
+const commonConfig: Configuration = {
     entry: path.resolve(__dirname, "../src/index.tsx"),
     output: {
         filename: "[name].[contenthash].js",
@@ -17,24 +20,7 @@ module.exports = {
             {
                 test: /.(jsx?)|(tsx?)$/,
                 exclude: /node_modules/,
-                use: {
-                    loader: "babel-loader",
-                    options: {
-                        presets: [
-                            [
-                                "@babel/preset-env",
-                                {
-                                    targets:
-                                        "iOS 9, Android 4.4, last 2 versions, > 0.2%, not dead", // 根据项目去配置
-                                    useBuiltIns: "usage", // 会根据配置的目标环境找出需要的polyfill进行部分引入
-                                    corejs: 3, // 使用 core-js@3 版本
-                                },
-                            ],
-                            ["@babel/preset-typescript"],
-                            ["@babel/preset-react"],
-                        ],
-                    },
-                },
+                use: ["babel-loader"],
             },
             {
                 test: /\.(png|jpe?g|gif|svg|webp)$/i,
@@ -74,7 +60,7 @@ module.exports = {
                                 plugins: ["postcss-preset-env"],
                             },
                         },
-                    }
+                    },
                 ],
                 // 排除 node_modules 目录
                 exclude: /node_modules/,
@@ -88,3 +74,5 @@ module.exports = {
         }),
     ],
 };
+
+export default commonConfig;

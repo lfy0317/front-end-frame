@@ -1,10 +1,11 @@
-const path = require("path");
-const { merge } = require("webpack-merge");
-const MiniCssExtractPlugin = require("mini-css-extract-plugin");
-const CssMinimizerPlugin = require("css-minimizer-webpack-plugin");
-const base = require("./webpack.base.js");
+import { Configuration } from "webpack";
+import path from "path";
+import { merge } from "webpack-merge";
+import MiniCssExtractPlugin from "mini-css-extract-plugin";
+import CssMinimizerPlugin from "css-minimizer-webpack-plugin";
+import commonConfig from "./webpack.common";
 
-module.exports = merge(base, {
+const prodConfig: Configuration = {
     mode: "production", // 生产模式
     devtool: "source-map",
     // 生产环境下才会打包到 dist，生产环境下才需要设置 path 和 clean
@@ -66,4 +67,5 @@ module.exports = merge(base, {
             filename: "assets/css/[contenthash].css",
         }),
     ],
-});
+};
+export default merge(commonConfig, prodConfig);

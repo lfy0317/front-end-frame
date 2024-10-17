@@ -1,3 +1,11 @@
+declare global {
+    namespace NodeJS {
+        interface ProcessEnv {
+            NODE_ENV: "development" | "production";
+        }
+    }
+}
+
 declare module "*.module.less";
 declare module "*.less" {
     const content: { [className: string]: string };
