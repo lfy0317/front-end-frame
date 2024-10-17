@@ -16,7 +16,7 @@ module.exports = merge(base, {
     module: {
         rules: [
             {
-                test: /\.(css|less)$/,
+                test: /\.less$/,
                 use: [
                     MiniCssExtractPlugin.loader, // 提取css到单独的文件
                     {

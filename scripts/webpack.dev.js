@@ -6,7 +6,7 @@ module.exports = merge(base, {
     module: {
         rules: [
             {
-                test: /\.(css|less)$/,
+                test: /\.less$/,
                 use: [
                     "style-loader",
                     {
