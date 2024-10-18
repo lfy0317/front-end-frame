@@ -42,7 +42,7 @@ module.exports = {
         sourceType: "module",
         jsx: true
     },
-    extends: ["eslint:recommended", "plugin:@typescript-eslint/recommended"],
+    extends: ["eslint:recommended", "plugin:@typescript-eslint/recommended", "standard"],
     plugins: ["@typescript-eslint"],
     rules: {
         //暂时不写
