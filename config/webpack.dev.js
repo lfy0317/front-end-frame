@@ -1,12 +1,12 @@
-import { Configuration } from "webpack";
-import { merge } from "webpack-merge";
-import commonConfig from "./webpack.common";
+const path = require("path");
+const { merge } = require("webpack-merge");
+const commonConfig = require("./webpack.common");
 
-const devConfig: Configuration & { devServer: { [key: string]: any } } = {
+const devConfig = {
     mode: "development", // 开发模式
     devServer: {
         open: true, // 编译完自动打开浏览器
-        port: 8080,
+        port: 8080
     },
     module: {
         rules: [
@@ -20,9 +20,9 @@ const devConfig: Configuration & { devServer: { [key: string]: any } } = {
                             // 启用 CSS Modules
                             modules: {
                                 namedExport: true,
-                                localIdentName: "lfy__[name]__[local]",
-                            },
-                        },
+                                localIdentName: "lfy__[name]__[local]"
+                            }
+                        }
                     },
                     {
                         loader: "postcss-loader",
@@ -30,17 +30,17 @@ const devConfig: Configuration & { devServer: { [key: string]: any } } = {
                             // 它可以帮助我们将一些现代的 CSS 特性，转成大多数浏览器认识的 CSS，并且会根据目标浏览器或运行时环境添加所需的 polyfill；
                             // 也包括会自动帮助我们添加 autoprefixer
                             postcssOptions: {
-                                plugins: ["postcss-preset-env"],
-                            },
-                        },
+                                plugins: ["postcss-preset-env"]
+                            }
+                        }
                     },
-                    "less-loader",
+                    "less-loader"
                 ],
                 // 排除 node_modules 目录
-                exclude: /node_modules/,
-            },
-        ],
-    },
+                exclude: /node_modules/
+            }
+        ]
+    }
 };
 
-export default merge(commonConfig, devConfig);
+module.exports = merge(commonConfig, devConfig);
