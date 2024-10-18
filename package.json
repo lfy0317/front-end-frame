@@ -66,7 +66,17 @@
         "webpack-dev-server": "^5.1.0",
         "webpack-merge": "^6.0.1"
     },
+    "husky": {
+        "hooks": {
+            "pre-commit": "lint-staged"
+        }
+    },
     "lint-staged": {
-        "**/*": "prettier --write --ignore-unknown"
+        "*.{ts,tsx,js}": [
+            "eslint --config .eslintrc.js"
+        ],
+        "*.{ts,tsx,js,json,html,yml,css,less,scss,md}": [
+            "prettier --write --ignore-unknown"
+        ]
     }
 }
