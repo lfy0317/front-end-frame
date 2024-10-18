@@ -4,7 +4,7 @@ import reactLogo from "@/assets/images/react.svg";
 import * as styles from "./index.module.less";
 
 const App: React.FC = () => {
-    console.log(styles);
+    console.log(styles, "test");
     return (
         <div className={styles.wrapper}>
             <img src={reactLogo} />
