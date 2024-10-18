@@ -8,7 +8,6 @@ const App: React.FC = () => {
     return (
         <div className={styles.wrapper}>
             <img src={reactLogo} />
-            hello 小柒
             <h1 className="text-3xl font-bold underline">Hello world!</h1>
             <Button>click btn</Button>
         </div>
