@@ -1,11 +1,11 @@
 import React from "react";
-import ChatLayout from "@/layout/ChatLayout";
+import ChatLayout from "@/layout/chat/ChatLayout";
 
 const Chat = React.lazy(() => import("@/views/chat/Chat"));
 
 const chatRouter = [
 	{
-		path: "/chat",
+		path: "/",
 		element: <ChatLayout />,
 		children: [
 			{
