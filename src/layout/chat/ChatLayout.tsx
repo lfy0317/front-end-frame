@@ -44,129 +44,53 @@ const data = {
 	versions: ["1.0.1", "1.1.0-alpha", "2.0.0-beta1"],
 	navMain: [
 		{
-			title: "Getting Started",
-			url: "#",
-			items: [
-				{
-					title: "Installation",
-					url: "#"
-				},
-				{
-					title: "Project Structure",
-					url: "#"
-				}
-			]
+			title: "Routing",
+			url: "#"
 		},
 		{
-			title: "Building Your Application",
+			title: "Data Fetching",
 			url: "#",
-			items: [
-				{
-					title: "Routing",
-					url: "#"
-				},
-				{
-					title: "Data Fetching",
-					url: "#",
-					isActive: true
-				},
-				{
-					title: "Rendering",
-					url: "#"
-				},
-				{
-					title: "Caching",
-					url: "#"
-				},
-				{
-					title: "Styling",
-					url: "#"
-				},
-				{
-					title: "Optimizing",
-					url: "#"
-				},
-				{
-					title: "Configuring",
-					url: "#"
-				},
-				{
-					title: "Testing",
-					url: "#"
-				},
-				{
-					title: "Authentication",
-					url: "#"
-				},
-				{
-					title: "Deploying",
-					url: "#"
-				},
-				{
-					title: "Upgrading",
-					url: "#"
-				},
-				{
-					title: "Examples",
-					url: "#"
-				}
-			]
+			isActive: true
 		},
 		{
-			title: "API Reference",
-			url: "#",
-			items: [
-				{
-					title: "Components",
-					url: "#"
-				},
-				{
-					title: "File Conventions",
-					url: "#"
-				},
-				{
-					title: "Functions",
-					url: "#"
-				},
-				{
-					title: "next.config.js Options",
-					url: "#"
-				},
-				{
-					title: "CLI",
-					url: "#"
-				},
-				{
-					title: "Edge Runtime",
-					url: "#"
-				}
-			]
+			title: "Rendering1",
+			url: "#"
 		},
 		{
-			title: "Architecture",
-			url: "#",
-			items: [
-				{
-					title: "Accessibility",
-					url: "#"
-				},
-				{
-					title: "Fast Refresh",
-					url: "#"
-				},
-				{
-					title: "Next.js Compiler",
-					url: "#"
-				},
-				{
-					title: "Supported Browsers",
-					url: "#"
-				},
-				{
-					title: "Turbopack",
-					url: "#"
-				}
-			]
+			title: "Caching1",
+			url: "#"
+		},
+		{
+			title: "Rendering2",
+			url: "#"
+		},
+		{
+			title: "Caching2",
+			url: "#"
+		},
+		{
+			title: "Rendering3",
+			url: "#"
+		},
+		{
+			title: "Caching3",
+			url: "#"
+		},
+		{
+			title: "Rendering4",
+			url: "#"
+		},
+		{
+			title: "Caching4",
+			url: "#"
+		},
+		{
+			title: "Rendering5",
+			url: "#"
+		},
+		{
+			title: "Caching5",
+			url: "#"
 		}
 	]
 };
@@ -205,24 +129,17 @@ export default function ChatLayout() {
 						</SidebarGroup>
 					</form>
 				</SidebarHeader>
-				<SidebarContent>
+				<SidebarContent className="m-4 scroll-custom">
 					{/* We create a SidebarGroup for each parent. */}
-					{data.navMain.map(item => (
-						<SidebarGroup key={item.title}>
-							<SidebarGroupLabel>{item.title}</SidebarGroupLabel>
-							<SidebarGroupContent>
-								<SidebarMenu>
-									{item.items.map(item => (
-										<SidebarMenuItem key={item.title}>
-											<SidebarMenuButton asChild isActive={item.isActive}>
-												<a href={item.url}>{item.title}</a>
-											</SidebarMenuButton>
-										</SidebarMenuItem>
-									))}
-								</SidebarMenu>
-							</SidebarGroupContent>
-						</SidebarGroup>
-					))}
+					<SidebarMenu>
+						{data.navMain.map(item => (
+							<SidebarMenuItem key={item.title} className="rounded-md hover:bg-slate-200">
+								<SidebarMenuButton asChild isActive={item.isActive}>
+									<a href={item.url}>{item.title}</a>
+								</SidebarMenuButton>
+							</SidebarMenuItem>
+						))}
+					</SidebarMenu>
 				</SidebarContent>
 				<SidebarRail />
 				<SidebarFooter>

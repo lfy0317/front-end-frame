@@ -5,6 +5,11 @@
 .text-sidebar-primary-foreground {
 	color: hsl(var(--sidebar-primary-foreground));
 }
+
 .bg-sidebar-primary {
 	background-color: hsl(var(--sidebar-primary));
+}
+
+.scroll-custom::-webkit-scrollbar {
+	display: none;
 }
